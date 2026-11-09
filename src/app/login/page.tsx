@@ -11,5 +11,6 @@ export default function LoginPage() {
   return (
    <AuthLayout mode="login" title="Iniciar Sesión" description="Ingresa tus credenciales para sincronizar tus contraseñas">
     <AuthForm mode="login"/>
-   </AuthLayout> );
+   </AuthLayout>
+  );
 }

@@ -211,7 +211,6 @@ if(esRegistro){
             {esRegistro ? "person_add" : "arrow_forward"}
           </span>
         </button>
-      </div>
-    </form>
-  );
+      </div> </form>
+    );
 }
