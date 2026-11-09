@@ -140,6 +140,5 @@ export default function AuthLayout({
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div> );
 }
