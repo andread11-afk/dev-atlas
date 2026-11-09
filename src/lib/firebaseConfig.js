@@ -8,6 +8,8 @@ const firebaseConfig = {
   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID, 
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 }
-const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
-
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig)
 export const auth = getAuth(app);
+/*replicar un login 
+ no tener archivos .env no tener string en las claves*/
+
