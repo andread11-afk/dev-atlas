@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import {auth} from"@/lib/firebaseConfig";
-import {createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
+import {createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword} from "firebase/auth";
 
 
 type AuthFormProps = { mode: "login" | "signup" };
@@ -35,7 +35,10 @@ if(esRegistro){
     email.trim(), 
     password);
     await updateProfile(resultado.user, {displayName: name.trim()}); 
-}
+     } else {
+        await signInWithEmailAndPassword(auth, email.trim(), password);
+        window.location.href = "/dashboard";
+      }
    }catch (error){
     console.log("Error al enviar el formulario", error);
     setError(esRegistro ? "Error al crear la cuenta" : "Error al iniciar sesión");
@@ -196,6 +199,7 @@ if(esRegistro){
       )}
       <div className="pt-2">
         {error && (<p role="alert" className="text-error text-sm"> {error}</p>)}
+
         <button
           className="w-full flex items-center justify-center gap-2 bg-primary-container opacity-70 cursor-pointer text-on-primary font-label-ui text-label-ui font-semibold py-2.5 px-4 rounded-lg shadow-sm transition-all duration-150 active:scale-[0.98] border border-white/10"
           type="submit"
